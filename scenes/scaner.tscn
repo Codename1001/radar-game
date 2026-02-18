@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3ovr64dj0h4g"]
+
+[ext_resource type="Script" uid="uid://cinvejg057b4x" path="res://scenes/scaner.gd" id="1_8vunr"]
+
+[node name="scaner" type="Node2D"]
+script = ExtResource("1_8vunr")
+
+[node name="rays" type="Node2D" parent="."]
+position = Vector2(0, -2)
+
+[node name="RayCast2D3" type="RayCast2D" parent="rays"]
+target_position = Vector2(0, -500)
+
+[node name="RayCast2D4" type="RayCast2D" parent="rays"]
+rotation = 1.0472
+target_position = Vector2(0, -500)
+
+[node name="RayCast2D5" type="RayCast2D" parent="rays"]
+rotation = -1.0472
+target_position = Vector2(0, -500)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-2, 12)
+color = Color(0.302833, 1, 0.11, 0.164706)
+polygon = PackedVector2Array(1, -12, -430, -262, -350, -366, -206, -470, -110, -502, -30, -514, 34, -514, 114, -502, 210, -470, 354, -366, 434, -262, 4, -13)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+position = Vector2(-2, 12)
+color = Color(0, 0.455732, 0.921244, 1)
+polygon = PackedVector2Array(-12, -14, -6, -10, 2, -9, 10, -10, 16, -14, 15, -16, 10, -13, 7, -12, 4, -12, 3, -22, 4, -25, 2, -25, 0, -25, 1, -22, 0, -12, -3, -12, -6, -13, -11, -16)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -499)
+autoplay = true
+bus = &"ship sounds"

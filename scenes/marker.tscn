@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bspwgqv8ee26c"]
+
+[ext_resource type="Script" uid="uid://c1peutuui40m4" path="res://scenes/marker.gd" id="1_plg8q"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hy4mp"]
+
+[node name="marker" type="Node2D"]
+script = ExtResource("1_plg8q")
+faded = true
+
+[node name="Polygon2D" type="Sprite2D" parent="."]
+position = Vector2(-1.19209e-07, 0)
+scale = Vector2(4, 4)
+texture = SubResource("CanvasTexture_hy4mp")

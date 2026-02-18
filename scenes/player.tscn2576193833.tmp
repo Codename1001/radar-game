@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://gpy6a2hye0g7"]
+
+[ext_resource type="Script" uid="uid://rx5rsggebnuo" path="res://scenes/player.gd" id="1_8vunr"]
+[ext_resource type="PackedScene" uid="uid://c3ovr64dj0h4g" path="res://scenes/scaner.tscn" id="2_g2els"]
+
+[sub_resource type="Environment" id="Environment_kwbdi"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 0.39
+glow_bloom = 1.0
+glow_hdr_threshold = 1.71
+adjustment_enabled = true
+adjustment_brightness = 0.59
+adjustment_contrast = 1.82
+adjustment_saturation = 2.47
+
+[node name="player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_8vunr")
+
+[node name="scaner" parent="." instance=ExtResource("2_g2els")]
+position = Vector2(0, -32)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 152, 16, 88, 24, 0, 24, -56, 16, -72, 0, -80, -16, -72, -24, -56, -24, 0, -16, 88)
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, -80, 16, -72, 24, -56, 24, -8, 16, 88, 0, 152, -16, 88, -24, -8, -24, -56, -16, -72)
+closed = true
+width = 3.875
+default_color = Color(0.37, 0.667, 0.109, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Line2D"]
+environment = SubResource("Environment_kwbdi")
