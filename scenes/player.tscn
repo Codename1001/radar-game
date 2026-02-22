@@ -7,7 +7,7 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g2els"]
 friction = 0.65
 rough = true
-bounce = 0.4
+bounce = 0.05
 
 [node name="player" type="RigidBody2D"]
 collision_layer = 2
