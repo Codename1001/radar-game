@@ -42,7 +42,7 @@ custom_minimum_size = Vector2(0.4, 9.105)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.134
-anchor_bottom = 0.45700002
+anchor_bottom = 0.67
 offset_right = -0.16200256
 theme_override_styles/panel = ExtResource("1_y7dsf")
 
@@ -54,7 +54,7 @@ alignment = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/Node2D/VSplitContainer" unique_id=204233682]
 custom_minimum_size = Vector2(0, 151.28)
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_vertical = 2
 theme_override_colors/default_color = Color(0.302, 1, 0.11, 0.85)
 theme_override_fonts/normal_font = SubResource("FontVariation_ahhtf")
 theme_override_font_sizes/normal_font_size = 16
