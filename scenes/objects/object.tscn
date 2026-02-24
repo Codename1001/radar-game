@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://mxlj0pmnftbm"]
+
+[ext_resource type="Script" uid="uid://ckjsenw5v820c" path="res://scenes/objects/object.gd" id="1_pkda2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_egkf8"]
+size = Vector2(98, 97)
+
+[node name="object" type="CharacterBody2D" unique_id=1658041614 groups=["object"]]
+slide_on_ceiling = false
+script = ExtResource("1_pkda2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1879028460]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_egkf8")

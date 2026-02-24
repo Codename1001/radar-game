@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://fox4ts6k5man"]
+
+[ext_resource type="Script" uid="uid://bxyt5fivuwmi6" path="res://scenes/components/guns.gd" id="1_68dbr"]
+
+[node name="guns" type="Node2D" unique_id=124926418]
+script = ExtResource("1_68dbr")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=252904177]
+points = PackedVector2Array(0, -27, 0, -5, -3, 0, 3, 0, 0, -5)
+width = 4.0
+default_color = Color(0.36862746, 0.89411765, 0.105882354, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=900127572]
+target_position = Vector2(0, -5000)
