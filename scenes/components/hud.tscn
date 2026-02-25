@@ -52,7 +52,7 @@ theme_override_constants/separation = -3
 alignment = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/Node2D/VSplitContainer" unique_id=204233682]
-custom_minimum_size = Vector2(0, 151.28)
+custom_minimum_size = Vector2(0, 154.515)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.302, 1, 0.11, 0.85)
@@ -62,19 +62,20 @@ bbcode_enabled = true
 text = "place hold"
 
 [node name="PanelContainer2" type="PanelContainer" parent="Control/Node2D/VSplitContainer" unique_id=400061586]
-custom_minimum_size = Vector2(145.345, 65.625)
+custom_minimum_size = Vector2(145.345, 94.09)
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxFlat_bew8r")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/Node2D/VSplitContainer/PanelContainer2" unique_id=2016821782]
-custom_minimum_size = Vector2(0, 92.69)
+custom_minimum_size = Vector2(0, 147.61)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.302, 1, 0.11, 0.85)
 theme_override_fonts/normal_font = SubResource("FontVariation_ahhtf")
 theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
-text = "place hold"
+text = "find all the cube colors by scaning them with tab. movment is w a s d and left and right arrow keys to strafe
+"
 
 [node name="PanelContainer" type="PanelContainer" parent="Control/Node2D/VSplitContainer" unique_id=1046581053]
 custom_minimum_size = Vector2(145.345, 36.385)
