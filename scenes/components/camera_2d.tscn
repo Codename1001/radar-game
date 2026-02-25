@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://bpu8vy4uvpgru" path="res://scenes/components/camera_2d.gd" id="1_y3knd"]
 
 [node name="Camera2D" type="Camera2D" unique_id=1048905295]
+ignore_rotation = false
 zoom = Vector2(0.79, 0.79)
 position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 2.25
 script = ExtResource("1_y3knd")
