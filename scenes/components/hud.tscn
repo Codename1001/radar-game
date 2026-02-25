@@ -54,7 +54,7 @@ alignment = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/Node2D/VSplitContainer" unique_id=204233682]
 custom_minimum_size = Vector2(0, 151.28)
 layout_mode = 2
-size_flags_vertical = 2
+size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.302, 1, 0.11, 0.85)
 theme_override_fonts/normal_font = SubResource("FontVariation_ahhtf")
 theme_override_font_sizes/normal_font_size = 16

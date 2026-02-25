@@ -19,7 +19,7 @@ script = ExtResource("2_k0juu")
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_egkf8")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="world objects" unique_id=2069060123 groups=["object"]]
+[node name="StaticBody2D" type="StaticBody2D" parent="world objects" unique_id=1225387634 groups=["object"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="world objects/StaticBody2D" unique_id=1665076475]
 position = Vector2(-28.099121, 0)
