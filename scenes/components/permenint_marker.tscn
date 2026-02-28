@@ -2,12 +2,8 @@
 
 [ext_resource type="Script" uid="uid://v0drajcyvbw3" path="res://scenes/components/permenint_marker.gd" id="1_mv31m"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_hy4mp"]
-
 [node name="permenint_marker" type="Node2D" unique_id=1265472487]
 script = ExtResource("1_mv31m")
 
-[node name="Polygon2D" type="Sprite2D" parent="." unique_id=926390261]
-position = Vector2(-1.19209e-07, 0)
-scale = Vector2(4, 4)
-texture = SubResource("CanvasTexture_hy4mp")
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=760589291]
+polygon = PackedVector2Array(0, -4, 3, -3, 4, 0, 3, 3, 0, 4, -3, 3, -4, 0, -3, -3)

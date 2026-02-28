@@ -15,3 +15,6 @@ end_cap_mode = 2
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=900127572]
 target_position = Vector2(0, -5000)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=210076318]
+position = Vector2(0, -27.896088)
