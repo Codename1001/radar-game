@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://87abergro8pm"
+path="res://.godot/imported/good radar blip 1.ogg-28d415c45a061e9de56b24130e3b3ee0.oggvorbisstr"
+
+[deps]
+
+source_file="res://good radar blip 1.ogg"
+dest_files=["res://.godot/imported/good radar blip 1.ogg-28d415c45a061e9de56b24130e3b3ee0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

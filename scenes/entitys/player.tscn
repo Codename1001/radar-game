@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://rx5rsggebnuo" path="res://scenes/entitys/player.gd" id="1_8vunr"]
 [ext_resource type="PackedScene" uid="uid://c3ovr64dj0h4g" path="res://scenes/components/scaner.tscn" id="2_g2els"]
-[ext_resource type="PackedScene" uid="uid://bygews1qh6y4o" path="res://scenes/components/hud.tscn" id="2_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://fox4ts6k5man" path="res://scenes/components/guns.tscn" id="4_dqkch"]
 [ext_resource type="PackedScene" uid="uid://clphmp64mebhk" path="res://scenes/components/camera_2d.tscn" id="5_2nni0"]
+[ext_resource type="AudioStream" uid="uid://bn4gn7go3apmu" path="res://crash sound.ogg" id="5_hucg6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g2els"]
 friction = 0.65
@@ -24,11 +24,9 @@ max_contacts_reported = 1
 linear_damp = 0.235
 script = ExtResource("1_8vunr")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=892902401]
-position = Vector2(0.00590897, -75.3294)
-polygon = PackedVector2Array(16.0747, 111.213, 8.25726, 87.8726, 16, 56, 32, 64, 32, 16, 16, 0, 16, -56, 8, -72, -0.00590897, -76.6706, -8, -72, -16, -56, -16, 0, -32, 16, -32, 64, -16, 56, -8.04775, 88.4309, -15.6879, 112.76, -14.0784, 118.919, -2.86339, 114.202, -0.00590897, 115.3294, -5.70251, 123.163, -0.00692749, 120.929, 4.79523, 122.381, -0.00590897, 115.3294, 2.44999, 114.005, 15.0696, 118.584)
+[node name="visuals" type="Node2D" parent="." unique_id=478660232]
 
-[node name="Line2D2" type="Line2D" parent="." unique_id=1808114245]
+[node name="Line2D2" type="Line2D" parent="visuals" unique_id=1808114245]
 position = Vector2(0.00590897, -75.3294)
 points = PackedVector2Array(16, 0, 32, 16, 32, 64, 16, 56)
 width = 4.0
@@ -36,16 +34,17 @@ default_color = Color(0.36862746, 0.89411765, 0.105882354, 1)
 joint_mode = 2
 round_precision = 5
 
-[node name="Line2D3" type="Line2D" parent="." unique_id=2098697560]
+[node name="Line2D3" type="Line2D" parent="visuals" unique_id=2098697560]
 position = Vector2(0.00590897, -75.3294)
-scale = Vector2(-1, 1)
+rotation = 3.1415927
+scale = Vector2(1, -1)
 points = PackedVector2Array(16, 0, 32, 16, 32, 64, 16, 56)
 width = 4.0
 default_color = Color(0.36862746, 0.89411765, 0.105882354, 1)
 joint_mode = 2
 round_precision = 5
 
-[node name="Line2D" type="Line2D" parent="." unique_id=1663114707]
+[node name="Line2D" type="Line2D" parent="visuals" unique_id=1663114707]
 position = Vector2(0.00590897, -75.3294)
 points = PackedVector2Array(0, -76, 8, -72, 16, -56, 16, 56, 16, -8, 16, 56, 8, 88, 16, 112, 16, 120, 0, 112, 0, 120, 6, 123, 0, 120, -7, 123, 0, 120, 0, 112, -16, 120, -16, 112, -8, 88, -16, 56, -16, -8, -16, -56, -8, -72)
 closed = true
@@ -56,9 +55,10 @@ begin_cap_mode = 2
 end_cap_mode = 2
 round_precision = 5
 
-[node name="Line2D4" type="Line2D" parent="." unique_id=674996701]
+[node name="Line2D4" type="Line2D" parent="visuals" unique_id=674996701]
 position = Vector2(0.00590897, -75.3294)
-scale = Vector2(-1, 1)
+rotation = 3.1415927
+scale = Vector2(1, -1)
 points = PackedVector2Array(0, 16, -8, 24, -8, 40, 0, 72, 8, 40, 8, 24)
 closed = true
 width = 4.0
@@ -66,9 +66,10 @@ default_color = Color(0.36862746, 0.89411765, 0.105882354, 1)
 joint_mode = 2
 round_precision = 5
 
-[node name="Line2D5" type="Line2D" parent="." unique_id=1456573110]
+[node name="Line2D5" type="Line2D" parent="visuals" unique_id=1456573110]
 position = Vector2(0.00590897, -147.329)
-scale = Vector2(-1, 1)
+rotation = 3.1415927
+scale = Vector2(1, -1)
 points = PackedVector2Array(0, 24, -8, 24, -16, 40, -8, 56, 0, 56, 8, 56, 16, 40, 8, 24)
 closed = true
 width = 4.0
@@ -76,14 +77,16 @@ default_color = Color(0.36862746, 0.89411765, 0.105882354, 1)
 joint_mode = 2
 round_precision = 5
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=892902401]
+position = Vector2(0.00590897, -75.3294)
+polygon = PackedVector2Array(16.0747, 111.213, 8.25726, 87.8726, 16, 56, 32, 64, 32, 16, 16, 0, 16, -56, 8, -72, -0.00590897, -76.6706, -8, -72, -16, -56, -16, 0, -32, 16, -32, 64, -16, 56, -8.04775, 88.4309, -15.6879, 112.76, -14.0784, 118.919, -2.86339, 114.202, -0.00590897, 115.3294, -5.70251, 123.163, -0.00692749, 120.929, 4.79523, 122.381, -0.00590897, 115.3294, 2.44999, 114.005, 15.0696, 118.584)
+
 [node name="scaner" parent="." unique_id=397326198 instance=ExtResource("2_g2els")]
 position = Vector2(0.00590897, -107.329)
 
 [node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=564971042]
 position = Vector2(0.00590897, -56)
 current = true
-
-[node name="hud" parent="." unique_id=860957025 instance=ExtResource("2_qhqgy")]
 
 [node name="guns" parent="." unique_id=124926418 instance=ExtResource("4_dqkch")]
 position = Vector2(24, -64)
@@ -99,6 +102,9 @@ position = Vector2(-24, -64)
 position = Vector2(0.00590897, -75.3294)
 scale = Vector2(1.045, 1.045)
 polygon = PackedVector2Array(16.0747, 111.213, 8.25726, 87.8726, 16, 56, 32, 64, 32, 16, 16, 0, 16, -56, 8, -72, -0.00590897, -76.6706, -8, -72, -16, -56, -16, 0, -32, 16, -32, 64, -16, 56, -8.04775, 88.4309, -15.6879, 112.76, -14.0784, 118.919, -2.86339, 114.202, -0.00590897, 115.3294, -5.70251, 123.163, -0.00692749, 120.929, 4.79523, 122.381, -0.00590897, 115.3294, 2.44999, 114.005, 15.0696, 118.584)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=713432391]
+stream = ExtResource("5_hucg6")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

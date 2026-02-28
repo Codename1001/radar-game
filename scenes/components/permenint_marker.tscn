@@ -1,9 +1,19 @@
 [gd_scene format=3 uid="uid://do20ogbtpqem0"]
 
 [ext_resource type="Script" uid="uid://v0drajcyvbw3" path="res://scenes/components/permenint_marker.gd" id="1_mv31m"]
+[ext_resource type="AudioStream" uid="uid://87abergro8pm" path="res://good radar blip 1.ogg" id="2_peep1"]
+[ext_resource type="AudioStream" uid="uid://djxd1if1h2s4u" path="res://bad radar blip 1.ogg" id="3_baqvm"]
 
 [node name="permenint_marker" type="Node2D" unique_id=1265472487]
 script = ExtResource("1_mv31m")
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=760589291]
 polygon = PackedVector2Array(0, -4, 3, -3, 4, 0, 3, 3, 0, 4, -3, 3, -4, 0, -3, -3)
+
+[node name="good blip" type="AudioStreamPlayer2D" parent="." unique_id=70592729]
+stream = ExtResource("2_peep1")
+bus = &"ship sounds"
+playback_type = 1
+
+[node name="bad blip" type="AudioStreamPlayer2D" parent="." unique_id=1664478769]
+stream = ExtResource("3_baqvm")

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://fox4ts6k5man"]
 
 [ext_resource type="Script" uid="uid://bxyt5fivuwmi6" path="res://scenes/components/guns.gd" id="1_68dbr"]
+[ext_resource type="AudioStream" uid="uid://f6hmumbiyaii" path="res://shoot sound.ogg" id="2_xdjpu"]
 
 [node name="guns" type="Node2D" unique_id=124926418]
 script = ExtResource("1_68dbr")
@@ -18,3 +19,8 @@ target_position = Vector2(0, -5000)
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=210076318]
 position = Vector2(0, -27.896088)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=83715086]
+stream = ExtResource("2_xdjpu")
+volume_db = -10.0
+bus = &"ship sounds"

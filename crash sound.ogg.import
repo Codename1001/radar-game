@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bn4gn7go3apmu"
+path="res://.godot/imported/crash sound.ogg-08f221902414087b926e3956081c7e50.oggvorbisstr"
+
+[deps]
+
+source_file="res://crash sound.ogg"
+dest_files=["res://.godot/imported/crash sound.ogg-08f221902414087b926e3956081c7e50.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

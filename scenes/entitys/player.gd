@@ -5,8 +5,8 @@ var normal_point
 var damage
 var damage_multiplyer
 
-@onready var hud = $hud
 
+@onready var sound = $AudioStreamPlayer2D
 @onready var  scaner = $scaner
 
 var thrust = 60
@@ -42,6 +42,7 @@ func  take_damage(body):
 	tween.tween_property(self,"modulate",Color(1.0, 1.0, 1.0),.5)
 	damage_multiplyer = 1
 	if hud.data.speed > 10:
+		sound.play()
 		damage = damage_multiplyer * hud.data.speed * abs(normal_point.normalized().dot(normal.normalized()))
 		hud.data.health = roundi(hud.data.health - damage)
 		hud.update_hud_data()

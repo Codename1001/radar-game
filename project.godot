@@ -19,6 +19,10 @@ run/main_scene="uid://c18hreo4mep7j"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://o5kyclp6f1a7"
 
+[autoload]
+
+hud="*uid://bygews1qh6y4o"
+
 [file_customization]
 
 folder_colors={
