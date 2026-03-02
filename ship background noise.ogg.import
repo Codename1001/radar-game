@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dj88rau8q6lvb"
+path="res://.godot/imported/ship background noise.ogg-bd724dab8e9e1b6283ca5e25de6c166c.oggvorbisstr"
+
+[deps]
+
+source_file="res://ship background noise.ogg"
+dest_files=["res://.godot/imported/ship background noise.ogg-bd724dab8e9e1b6283ca5e25de6c166c.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cc5sw1kebn480"
+path="res://.godot/imported/water sound 1 raw.ogg-00a46f9ac6bc18a08e418a6fae710baf.oggvorbisstr"
+
+[deps]
+
+source_file="res://water sound 1 raw.ogg"
+dest_files=["res://.godot/imported/water sound 1 raw.ogg-00a46f9ac6bc18a08e418a6fae710baf.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

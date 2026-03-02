@@ -2,7 +2,7 @@ extends Node2D
 
 
 
-var marker_colors = {"green":Color(0.369, 0.894, 0.106, 1.0),"red":Color(0.74, 0.074, 0.0),"blue":Color(0.0, 0.459, 0.735)}
+#var marker_colors = {"green":Color(0.369, 0.894, 0.106, 1.0),"red":Color(0.74, 0.074, 0.0),"blue":Color(0.0, 0.459, 0.735)}
 
 var target_hit = false
 
@@ -10,7 +10,7 @@ var target_hit = false
 @onready var sound2 = $"bad blip"
 
 func change_color(color:String):
-	modulate= marker_colors[color]
+	modulate= globalVars.marker_colors[color]
 
 
 
@@ -18,7 +18,7 @@ func change_color(color:String):
 func move_marker(distance,target, type,Rotation):#,color):
 	if target_hit == false:
 		change_color("green")
-		global_scale = Vector2(1,3)
+		global_scale = Vector2(1,5)
 		rotation = Rotation
 		var duration = distance / 600
 		var tween = create_tween()
@@ -42,5 +42,7 @@ func move_marker(distance,target, type,Rotation):#,color):
 			change_color("blue")
 		if type.is_in_group("enemy"):
 			change_color("red")
+		if type.is_in_group("neutral"):
+			change_color("purple")
 		if type.is_in_group("object"):
 			pass

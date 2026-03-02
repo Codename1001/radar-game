@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ynillihkwk6g"
+path="res://.godot/imported/water sound 3 raw.ogg-91af3bb3a08e422778689d174354f214.oggvorbisstr"
+
+[deps]
+
+source_file="res://water sound 3 raw.ogg"
+dest_files=["res://.godot/imported/water sound 3 raw.ogg-91af3bb3a08e422778689d174354f214.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

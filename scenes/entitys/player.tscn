@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://fox4ts6k5man" path="res://scenes/components/guns.tscn" id="4_dqkch"]
 [ext_resource type="PackedScene" uid="uid://clphmp64mebhk" path="res://scenes/components/camera_2d.tscn" id="5_2nni0"]
 [ext_resource type="AudioStream" uid="uid://bn4gn7go3apmu" path="res://crash sound.ogg" id="5_hucg6"]
+[ext_resource type="AudioStream" uid="uid://dj88rau8q6lvb" path="res://ship background noise.ogg" id="6_hucg6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g2els"]
 friction = 0.65
@@ -90,9 +91,13 @@ current = true
 
 [node name="guns" parent="." unique_id=124926418 instance=ExtResource("4_dqkch")]
 position = Vector2(24, -64)
+max_angle = 90
+min_angel = -90
 
 [node name="guns2" parent="." unique_id=2129618395 instance=ExtResource("4_dqkch")]
 position = Vector2(-24, -64)
+max_angle = 90
+min_angel = -90
 
 [node name="Camera2D" parent="." unique_id=1048905295 instance=ExtResource("5_2nni0")]
 
@@ -105,6 +110,13 @@ polygon = PackedVector2Array(16.0747, 111.213, 8.25726, 87.8726, 16, 56, 32, 64,
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=713432391]
 stream = ExtResource("5_hucg6")
+
+[node name="background noise" type="AudioStreamPlayer2D" parent="." unique_id=880542264]
+position = Vector2(0, -98.61548)
+stream = ExtResource("6_hucg6")
+volume_db = -8.432
+autoplay = true
+bus = &"ship sounds"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

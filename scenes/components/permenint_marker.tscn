@@ -12,6 +12,7 @@ polygon = PackedVector2Array(0, -4, 3, -3, 4, 0, 3, 3, 0, 4, -3, 3, -4, 0, -3, -
 
 [node name="good blip" type="AudioStreamPlayer2D" parent="." unique_id=70592729]
 stream = ExtResource("2_peep1")
+volume_db = -0.095
 bus = &"ship sounds"
 playback_type = 1
 

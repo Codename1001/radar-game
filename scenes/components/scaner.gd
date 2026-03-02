@@ -29,6 +29,8 @@ func scan():
 				new_marker.change_color("red")
 			if i.get_collider().is_in_group("object"):
 				new_marker.change_color("green")
+			if i.get_collider().is_in_group("neutral"):
+				new_marker.change_color("purple")
 			i.get_collider().add_child(new_marker)
 
 func _physics_process(delta: float) -> void:

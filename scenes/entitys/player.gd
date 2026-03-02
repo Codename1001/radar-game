@@ -22,6 +22,7 @@ func aplly_thrust(state):
 		input_derection.y = Input.get_action_strength("up")-Input.get_action_strength("down")
 		state.apply_central_force(Vector2(0,input_derection.y * -thrust).rotated(rotation))
 
+
 		input_derection.x = Input.get_action_strength("straf left")-Input.get_action_strength("straf right")
 		#if rotation_degrees > 80 :
 			#input_derection.x = -input_derection.x
@@ -68,6 +69,9 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		normal_point = to_global(normal_point)
 
 func _physics_process(delta: float) -> void:
+	$"background noise".volume_db = hud.data.speed / 10
+	if hud.data.speed ==0:
+		$"background noise".volume_db = move_toward($"background noise".volume_db,-80.5,2 )
 	update_stats()
 
 func _on_body_entered(body: Node) -> void:
