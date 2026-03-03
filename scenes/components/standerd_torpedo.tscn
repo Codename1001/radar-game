@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ccmk6klnuffhj"]
+
+[ext_resource type="Script" uid="uid://drtnc85k6trca" path="res://scenes/components/standerd_torpedo.gd" id="1_4rg8d"]
+[ext_resource type="AudioStream" uid="uid://87abergro8pm" path="res://good radar blip 1.ogg" id="1_yv784"]
+[ext_resource type="AudioStream" uid="uid://djxd1if1h2s4u" path="res://bad radar blip 1.ogg" id="2_4rg8d"]
+
+[node name="standerd_torpedo" type="Node2D" unique_id=1265472487]
+script = ExtResource("1_4rg8d")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=760589291]
+polygon = PackedVector2Array(0, -4, 3, -3, 4, 0, 3, 3, 0, 4, -3, 3, -4, 0, -3, -3)
+
+[node name="good blip" type="AudioStreamPlayer2D" parent="." unique_id=70592729]
+stream = ExtResource("1_yv784")
+volume_db = -0.095
+bus = &"ship sounds"
+playback_type = 1
+
+[node name="bad blip" type="AudioStreamPlayer2D" parent="." unique_id=1664478769]
+stream = ExtResource("2_4rg8d")

@@ -1,9 +1,38 @@
 extends CanvasLayer
 
-@onready var data_display = $Control/Node2D/VSplitContainer/RichTextLabel
-var data = { "speed" : 0, "health": 100, "ammo":200,"ammo_type":"traking_becon" , "position": Vector2.ZERO}
+@onready var data_display = $Control/MarginContainer/PanelContainer/HBoxContainer/RichTextLabel
+@onready var bulet_type_button= $"Control/MarginContainer/PanelContainer/HBoxContainer/Control/bulet type"
+var menu_show = false
 
+@onready var selected_bulet_type
+
+
+func _ready() -> void:
+	selected_bulet_type = bulet_type_button.get_item_text(bulet_type_button.get_selected_id())
+	update_hud_data()
+	bulet_type_button.grab_focus()
+
+func update_menu_data():
+	selected_bulet_type = bulet_type_button.get_item_text(bulet_type_button.get_selected_id())
+
+
+
+func _process(delta: float) -> void:
+	update_menu_data()
+	if Input.is_action_just_pressed("ui_cancel") and menu_show == false:
+		$Control/MarginContainer/menu.show()
+		$Control/MarginContainer/PanelContainer.hide()
+		globalVars.control = false
+		menu_show = true
+		$"Control/MarginContainer/menu/TabContainer/ship loadout".grab_focus()
+	elif Input.is_action_just_pressed("ui_cancel") and menu_show == true:
+		$Control/MarginContainer/menu.hide()
+		$Control/MarginContainer/PanelContainer.show()
+		globalVars.control = true
+		menu_show = false
+		bulet_type_button.grab_focus()
 
 func update_hud_data():
-	data_display.text = "speed : " + str(data.speed) + "m/s" + "\nhealth: " +str(data.health)+  "\nposition: \n(" +str(roundi(data.position.x)) + ", " + str(roundi(data.position.y))+ ")" + "\n\n\n"
-	data_display.text +=  "\nammo: " + str(data.ammo) + " Rnd's" +"\nammo_type: " + data.ammo_type
+	data_display.text = "speed : " + str(globalVars.data.speed) + "m/s" +  "												ammo_type: " +"\nhealth: " +str(globalVars.data.health)+ "										ammo: " + str(globalVars.data.ammo_type[selected_bulet_type]) + " Rnd's"+ "\nposition: \n(" +str(roundi(globalVars.data.position.x)) + ", " + str(roundi(globalVars.data.position.y))+ ")" + "\n\n\n"
+
+	pass

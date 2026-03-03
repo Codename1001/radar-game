@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://dhemipjmbj4wf"]
+
+[ext_resource type="StyleBox" uid="uid://qjrpdrdde2qj" path="res://meterials/green backround box.tres" id="1_2k85p"]
+
+[sub_resource type="SystemFont" id="SystemFont_toqtt"]
+subpixel_positioning = 0
+
+[sub_resource type="FontVariation" id="FontVariation_mx0yr"]
+base_font = SubResource("SystemFont_toqtt")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wcc6p"]
+bg_color = Color(0.368734, 0.89420825, 0.106126174, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.36862746, 0.89411765, 0.105882354, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6t3sc"]
+
+[node name="temp scene" type="Node2D" unique_id=1666690586]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1892513788]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1095303739]
+layout_mode = 3
+anchor_left = 0.008
+anchor_top = 0.019
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.216001
+offset_top = -3.312
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Node2D" type="PanelContainer" parent="CanvasLayer/Control" unique_id=605221493]
+custom_minimum_size = Vector2(0.4, 9.105)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.134
+anchor_bottom = 0.67
+offset_right = -0.16200256
+theme_override_styles/panel = ExtResource("1_2k85p")
+
+[node name="VSplitContainer" type="VBoxContainer" parent="CanvasLayer/Control/Node2D" unique_id=289871315]
+layout_mode = 2
+theme_override_constants/separation = -3
+alignment = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Node2D/VSplitContainer" unique_id=1987907902]
+custom_minimum_size = Vector2(0, 154.515)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.302, 1, 0.11, 0.85)
+theme_override_fonts/normal_font = SubResource("FontVariation_mx0yr")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "place hold"
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/Control/Node2D/VSplitContainer" unique_id=2041869355]
+custom_minimum_size = Vector2(145.345, 94.09)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_wcc6p")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Node2D/VSplitContainer/PanelContainer2" unique_id=554619141]
+custom_minimum_size = Vector2(0, 147.61)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.302, 1, 0.11, 0.85)
+theme_override_fonts/normal_font = SubResource("FontVariation_mx0yr")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "find all the colord objects by scaning things with shift. use W.A.S.D  to move.
+arrow keys to strafe "
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/Node2D/VSplitContainer" unique_id=1351063290]
+custom_minimum_size = Vector2(145.345, 36.385)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_wcc6p")
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/Control/Node2D/VSplitContainer/PanelContainer" unique_id=1679637643]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.36862746, 0.89411765, 0.105882354, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6t3sc")
+caret_blink = true

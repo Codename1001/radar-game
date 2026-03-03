@@ -3,8 +3,7 @@ extends Node2D
 @onready var ray = $RayCast2D
 
 @onready var sound = $AudioStreamPlayer2D
-@onready var perminint_marker_scene = preload("res://scenes/components/permenint_marker.tscn")
-
+@onready var bullet_types = {"tracking_beacon":preload("res://scenes/components/permenint_marker.tscn"), "standerd_torpedo": preload("res://scenes/components/standerd_torpedo.tscn")}
 @onready var marker = $Marker2D
 @export var max_angle = 45
 @export var min_angel = -45
@@ -12,12 +11,16 @@ var rotate_direction = 0
 
 var can_shoot= true
 
+
+
 func place_tracker():
 	if Input.is_action_just_pressed("shoot") and can_shoot == true and ray.get_collider():
-		if hud.data.ammo != 0:
-			hud.data.ammo -= 1
+		if globalVars.data.ammo_type[hud.selected_bulet_type] != 0:
+			globalVars.data.ammo_type[hud.selected_bulet_type] -= 1
 			sound.play()
-			var new_marker = perminint_marker_scene.instantiate()
+
+
+			var new_marker = bullet_types[hud.bulet_type_button.get_item_text(hud.bulet_type_button.get_selected_id())].instantiate()
 			var distance = ray.get_collider().to_local(marker.global_position).distance_to(ray.get_collider().to_local(ray.get_collision_point()))
 			var duration = distance / 600
 			var object_type
@@ -38,11 +41,14 @@ func aim_guns():
 	rotation_degrees = rotate_direction
 
 func _draw() -> void:
-	if ray.get_collider():
-		draw_dashed_line($Marker2D.position,to_local(ray.get_collision_point()),Color(0.369, 0.894, 0.106, 0.258)         , 4,8,false,true)
-	else:
-		draw_dashed_line($Marker2D.position,ray.target_position,Color(0.369, 0.894, 0.106, 0.258)         , 4,8,false,true)
+	if globalVars.data.ammo_type[hud.selected_bulet_type] !=0:
+		if ray.get_collider():
+			draw_dashed_line($Marker2D.position,ray.target_position/5,Color(0.369, 0.894, 0.106, 0.258), 4,8,false,true)
+			#									to_local(ray.get_collision_point())
+		else:
+			draw_dashed_line($Marker2D.position,ray.target_position/5,Color(0.369, 0.894, 0.106, 0.258)         , 4,8,false,true)
 func _process(delta: float) -> void:
-	aim_guns()
-	place_tracker()
-	queue_redraw()
+	if globalVars.control == true:
+		aim_guns()
+		place_tracker()
+		queue_redraw()

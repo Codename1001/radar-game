@@ -1,90 +1,90 @@
 [gd_scene format=3 uid="uid://bygews1qh6y4o"]
 
 [ext_resource type="Script" uid="uid://lrei367i1ond" path="res://scenes/components/hud.gd" id="1_bew8r"]
-[ext_resource type="StyleBox" uid="uid://qjrpdrdde2qj" path="res://meterials/green backround box.tres" id="1_y7dsf"]
-
-[sub_resource type="SystemFont" id="SystemFont_toqtt"]
-subpixel_positioning = 0
-
-[sub_resource type="FontVariation" id="FontVariation_ahhtf"]
-base_font = SubResource("SystemFont_toqtt")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bew8r"]
-bg_color = Color(0.368734, 0.89420825, 0.106126174, 0)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.36862746, 0.89411765, 0.105882354, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sgp4j"]
+[ext_resource type="Theme" uid="uid://wmf7vy6nt84e" path="res://meterials/menu.res" id="2_bew8r"]
 
 [node name="hud" type="CanvasLayer" unique_id=860957025]
 script = ExtResource("1_bew8r")
 
-[node name="Control" type="Control" parent="." unique_id=3597508]
+[node name="Control" type="Control" parent="." unique_id=639762024]
 layout_mode = 3
-anchor_left = 0.008
-anchor_top = 0.019
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -0.216001
-offset_top = -3.312
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1090204530]
+custom_minimum_size = Vector2(-0.315, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Node2D" type="PanelContainer" parent="Control" unique_id=1645726721]
-custom_minimum_size = Vector2(0.4, 9.105)
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.134
-anchor_bottom = 0.67
-offset_right = -0.16200256
-theme_override_styles/panel = ExtResource("1_y7dsf")
-
-[node name="VSplitContainer" type="VBoxContainer" parent="Control/Node2D" unique_id=886869636]
+[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer" unique_id=1262336934]
+custom_minimum_size = Vector2(600, 100)
 layout_mode = 2
-theme_override_constants/separation = -3
-alignment = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("2_bew8r")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/Node2D/VSplitContainer" unique_id=204233682]
-custom_minimum_size = Vector2(0, 154.515)
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/PanelContainer" unique_id=659460226]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/PanelContainer/HBoxContainer" unique_id=1147636585]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Control" type="VBoxContainer" parent="Control/MarginContainer/PanelContainer/HBoxContainer" unique_id=500625025]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="bulet type" type="OptionButton" parent="Control/MarginContainer/PanelContainer/HBoxContainer/Control" unique_id=1322175656]
+layout_mode = 2
+selected = 0
+allow_reselect = true
+item_count = 2
+popup/item_0/text = "tracking_beacon"
+popup/item_0/id = 0
+popup/item_1/text = "standerd_torpedo"
+popup/item_1/id = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="menu" type="VBoxContainer" parent="Control/MarginContainer" unique_id=1501310357]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_bew8r")
+theme_override_constants/separation = -31
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/MarginContainer/menu" unique_id=264478875]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_bew8r")
+theme_override_font_sizes/font_size = 52
+text = "menu"
+
+[node name="TabContainer" type="TabContainer" parent="Control/MarginContainer/menu" unique_id=1643043211]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/default_color = Color(0.302, 1, 0.11, 0.85)
-theme_override_fonts/normal_font = SubResource("FontVariation_ahhtf")
-theme_override_font_sizes/normal_font_size = 16
-bbcode_enabled = true
-text = "place hold"
+theme = ExtResource("2_bew8r")
+tab_alignment = 1
+current_tab = 0
 
-[node name="PanelContainer2" type="PanelContainer" parent="Control/Node2D/VSplitContainer" unique_id=400061586]
-custom_minimum_size = Vector2(145.345, 94.09)
+[node name="ship loadout" type="TabBar" parent="Control/MarginContainer/menu/TabContainer" unique_id=1103305024]
 layout_mode = 2
-size_flags_vertical = 8
-theme_override_styles/panel = SubResource("StyleBoxFlat_bew8r")
+metadata/_tab_index = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/Node2D/VSplitContainer/PanelContainer2" unique_id=2016821782]
-custom_minimum_size = Vector2(0, 147.61)
+[node name="sound" type="TabBar" parent="Control/MarginContainer/menu/TabContainer" unique_id=318216865]
+visible = false
 layout_mode = 2
-theme_override_colors/default_color = Color(0.302, 1, 0.11, 0.85)
-theme_override_fonts/normal_font = SubResource("FontVariation_ahhtf")
-theme_override_font_sizes/normal_font_size = 16
-bbcode_enabled = true
-text = "find all the colord objects by scaning things with shift. use W.A.S.D  to move.
-arrow keys to strafe "
-
-[node name="PanelContainer" type="PanelContainer" parent="Control/Node2D/VSplitContainer" unique_id=1046581053]
-custom_minimum_size = Vector2(145.345, 36.385)
-layout_mode = 2
-size_flags_vertical = 8
-theme_override_styles/panel = SubResource("StyleBoxFlat_bew8r")
-
-[node name="LineEdit" type="LineEdit" parent="Control/Node2D/VSplitContainer/PanelContainer" unique_id=394518146]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.36862746, 0.89411765, 0.105882354, 1)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_sgp4j")
-caret_blink = true
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath("../ship loadout")
+focus_mode = 0
+metadata/_tab_index = 1

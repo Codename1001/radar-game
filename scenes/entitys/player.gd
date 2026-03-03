@@ -15,10 +15,10 @@ var input_derection = Vector2.ZERO
 var rotate_derection = 0
 var straf_direction = 1
 
-var control = true
+
 
 func aplly_thrust(state):
-	if control == true:
+	if globalVars.control == true:
 		input_derection.y = Input.get_action_strength("up")-Input.get_action_strength("down")
 		state.apply_central_force(Vector2(0,input_derection.y * -thrust).rotated(rotation))
 
@@ -33,8 +33,8 @@ func aplly_thrust(state):
 		state.apply_torque(- rotate_derection * rotation_speed)
 
 func update_stats():
-	hud.data.speed = roundi(linear_velocity.length()/2)
-	hud.data.position = global_position/2
+	globalVars.data.speed = roundi(linear_velocity.length()/2)
+	globalVars.data.position = global_position/2
 	hud.update_hud_data()
 
 func  take_damage(body):
@@ -42,17 +42,17 @@ func  take_damage(body):
 	var tween = create_tween()
 	tween.tween_property(self,"modulate",Color(1.0, 1.0, 1.0),.5)
 	damage_multiplyer = 1
-	if hud.data.speed > 10:
+	if globalVars.data.speed > 10:
 		sound.play()
-		damage = damage_multiplyer * hud.data.speed * abs(normal_point.normalized().dot(normal.normalized()))
-		hud.data.health = roundi(hud.data.health - damage)
+		damage = damage_multiplyer * globalVars.data.speed * abs(normal_point.normalized().dot(normal.normalized()))
+		globalVars.data.health = roundi(globalVars.data.health - damage)
 		hud.update_hud_data()
 	else:
 		pass
-	if hud.data.health <= 0 :
+	if globalVars.data.health <= 0 :
 		tween.stop()
 		modulate = Color(0.891, 0.131, 0.0)
-		control = false
+		globalVars.control = false
 
 
 
@@ -69,8 +69,8 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 		normal_point = to_global(normal_point)
 
 func _physics_process(delta: float) -> void:
-	$"background noise".volume_db = hud.data.speed / 10
-	if hud.data.speed ==0:
+	$"background noise".volume_db = globalVars.data.speed / 10
+	if globalVars.data.speed ==0:
 		$"background noise".volume_db = move_toward($"background noise".volume_db,-80.5,2 )
 	update_stats()
 
