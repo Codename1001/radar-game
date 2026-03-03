@@ -38,7 +38,7 @@ func move_marker(distance,target, type,Rotation):#,color):
 		await get_tree().create_timer(.5).timeout
 		tween = create_tween()
 		tween.tween_property(self,"global_scale",Vector2(1,1),.4).set_trans(Tween.TRANS_LINEAR)
-		if type.is_in_group("entity"):
+		if type.is_in_group("friendly"):
 			change_color("blue")
 		if type.is_in_group("enemy"):
 			change_color("red")

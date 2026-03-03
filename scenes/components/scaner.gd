@@ -23,7 +23,7 @@ func scan():
 		if i.is_colliding():
 			var new_marker = marker_scene.instantiate()
 			new_marker.global_position = i.get_collider().to_local(i.get_collision_point())
-			if i.get_collider().is_in_group("entity"):
+			if i.get_collider().is_in_group("friendly"):
 				new_marker.change_color("blue")
 			if i.get_collider().is_in_group("enemy"):
 				new_marker.change_color("red")

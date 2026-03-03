@@ -5,7 +5,6 @@
 [node name="Camera2D" type="Camera2D" unique_id=1048905295]
 ignore_rotation = false
 zoom = Vector2(0.79, 0.79)
-position_smoothing_enabled = true
-rotation_smoothing_enabled = true
-rotation_smoothing_speed = 2.25
+limit_enabled = false
+rotation_smoothing_speed = 1.0
 script = ExtResource("1_y3knd")

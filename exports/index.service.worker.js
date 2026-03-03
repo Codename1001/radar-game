@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1772507844|25559982242';
+const CACHE_VERSION = '1772510179|27894937645';
 /** @type {string} */
 const CACHE_PREFIX = 'radar-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
