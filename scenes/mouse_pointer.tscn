@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bgxci8rwclou8"]
+
+[ext_resource type="Script" uid="uid://ccbiawi5fakdr" path="res://scenes/mouse_pointer.gd" id="1_e14je"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3jks"]
+size = Vector2(17, 19)
+
+[node name="mouse pointer" type="Node2D" unique_id=553573650]
+script = ExtResource("1_e14je")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1042445790]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1486221450]
+shape = SubResource("RectangleShape2D_j3jks")

@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://rx5rsggebnuo" path="res://scenes/entitys/player.gd" id="1_8vunr"]
 [ext_resource type="PackedScene" uid="uid://c3ovr64dj0h4g" path="res://scenes/components/scaner.tscn" id="2_g2els"]
 [ext_resource type="PackedScene" uid="uid://fox4ts6k5man" path="res://scenes/components/guns.tscn" id="4_dqkch"]
-[ext_resource type="PackedScene" uid="uid://clphmp64mebhk" path="res://scenes/components/camera_2d.tscn" id="5_2nni0"]
 [ext_resource type="AudioStream" uid="uid://bn4gn7go3apmu" path="res://crash sound.ogg" id="5_hucg6"]
 [ext_resource type="AudioStream" uid="uid://dj88rau8q6lvb" path="res://ship background noise.ogg" id="6_hucg6"]
 
@@ -12,14 +11,16 @@ friction = 0.65
 rough = true
 
 [node name="player" type="RigidBody2D" unique_id=1735800185]
+disable_mode = 2
 collision_layer = 2
-collision_mask = 3
 input_pickable = true
 mass = 1.385
 physics_material_override = SubResource("PhysicsMaterial_g2els")
 gravity_scale = 0.0
 center_of_mass_mode = 1
 center_of_mass = Vector2(0, -56)
+can_sleep = false
+continuous_cd = 2
 contact_monitor = true
 max_contacts_reported = 1
 linear_damp = 0.235
@@ -99,9 +100,9 @@ position = Vector2(-24, -64)
 max_angle = 90
 min_angel = -90
 
-[node name="Camera2D" parent="." unique_id=1048905295 instance=ExtResource("5_2nni0")]
-
 [node name="Area2D" type="Area2D" parent="." unique_id=965367707]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1714360161]
 position = Vector2(0.00590897, -75.3294)

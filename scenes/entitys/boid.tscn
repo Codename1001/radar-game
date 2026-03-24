@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://da1ugq2c3na5t"]
+
+[ext_resource type="Script" uid="uid://yighjs8f85uk" path="res://scenes/entitys/boid.gd" id="1_7na72"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7na72"]
+radius = 314.0573
+
+[node name="boid" type="RigidBody2D" unique_id=1696725926 groups=["neutral"]]
+collision_mask = 3
+gravity_scale = 0.0
+can_sleep = false
+linear_damp = 4.95
+angular_damp = 2.667
+script = ExtResource("1_7na72")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1643375014]
+scale = Vector2(5, 5)
+polygon = PackedVector2Array(-3, 0, -2, -6, 0, -8, 2, -6, 3, 0, 1.5049019, 7.0603065, -1.7254562, 7.0603065)
+
+[node name="rays" type="Node2D" parent="." unique_id=566489652]
+
+[node name="RayCast2D5" type="RayCast2D" parent="rays" unique_id=877946610]
+target_position = Vector2(0, -245.665)
+collision_mask = 3
+
+[node name="RayCast2D" type="RayCast2D" parent="rays" unique_id=133315167]
+rotation = -0.10471975
+target_position = Vector2(0, -200)
+collision_mask = 3
+
+[node name="RayCast2D2" type="RayCast2D" parent="rays" unique_id=468860201]
+rotation = 0.10471975
+target_position = Vector2(0, -200)
+collision_mask = 3
+
+[node name="RayCast2D3" type="RayCast2D" parent="rays" unique_id=1215188063]
+rotation = 0.7853982
+target_position = Vector2(0, -150)
+collision_mask = 3
+
+[node name="RayCast2D4" type="RayCast2D" parent="rays" unique_id=1680427621]
+rotation = -0.7853982
+target_position = Vector2(0, -150)
+collision_mask = 3
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1325307280]
+disable_mode = 2
+
+[node name="Polygon2D" type="CollisionShape2D" parent="Area2D" unique_id=1306005163]
+modulate = Color(1, 1, 1, 0.4627451)
+shape = SubResource("CircleShape2D_7na72")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1025778255]
+position = Vector2(0, -196)
+
+[node name="Polygon2D" type="Polygon2D" parent="Marker2D" unique_id=1296135820]
+polygon = PackedVector2Array(-2, -8, 9, -4, 7, 10, -2, 9, -7, 3)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
