@@ -1,72 +1,55 @@
 extends RigidBody2D
 
 @onready var rays = $rays.get_children()
-
+@export var id = 1
+@onready var marker = $Marker2D
 var stear_direction = 0
 
 var intrests = []
 var dangers = []
 var near_boids = []
 
-var move_speed = 1000
-var turn_speed = 100
+var move_speed = 100
+var turn_speed = 70
 #var avrage_direction =0
 
 var  target_position = Vector2.ZERO
 
-var debug = true
+var debug = false
 
 func group():
-	##var avrage = 0
-	##for area in near_boids:
-		##avrage += (area.get_parent().global_rotation_degrees) *-1 * 100
-	##if avrage !=0:
-		##avrage_direction = avrage / near_boids.size()
-	##print(avrage_direction)
-	##intrests.append(avrage_direction)
-	#var target = Vector2.ZERO
-	#if target == Vector2.ZERO :
-		#pass
-	#var avrage_target_pos = []
-	#var foward_vector = linear_velocity.normalized().rotated(rotation) #(-transform.y).rotated(rotation)
-	#for i in near_boids:
-		#avrage_target_pos.append(i.global_position)
-	#for i in avrage_target_pos:
-		#target +=i
-	#target / avrage_target_pos.size()
-#
-	#var direction = (target - global_position).normalized()
-	#var angle_diff = foward_vector.angle_to(direction)
-	#if near_boids == []:
-		#angle_diff = 0
-	#intrests.append(angle_diff * turn_speed)
-
+	var boids = Vector2.ZERO
 	var avrige_posiiton = Vector2.ZERO
 	# finds the avrage position of local boids
-	for area in near_boids:
-		avrige_posiiton += area.global_position
+	intrests = []
 
 	if !near_boids == []:
-
-		#intrests.append((avrige_posiiton / near_boids.size()))
-		#target_position = (avrige_posiiton / near_boids.size())
+		for area in near_boids:
+			boids += area.global_position 
+			avrige_posiiton = (boids / near_boids.size())
+			intrests.append(avrige_posiiton)
+			#target_position = (avrige_posiiton / near_boids.size())
 		pass
 	else:
+		
 		intrests.append($Marker2D.global_position)
 		#intrests.append((avrige_posiiton / near_boids.size()))
-
 		#target_position = $Marker2D.global_position
 	#print(rad_to_deg(get_angle_to(target_position))+90)
-
-	intrests.append( get_global_mouse_position())
+	#intrests.append( get_global_mouse_position())
 
 	#finds the avrage point of itrest and sets targaet position to it
 	for i in intrests:
-
-		target_position = (i/ intrests.size())
-
+		
+		if intrests.size() <1:
+			target_position = (i/ intrests.size())
+		else :
+			target_position = i
+	
 	stear_direction =  100*(rad_to_deg(get_angle_to(target_position))+90)
-
+	
+	
+	queue_redraw()
 	pass
 
 func stear(state):
@@ -84,9 +67,9 @@ func stear(state):
 
 func update_direction(state):
 
-	queue_redraw()
+	
 	#stear_direction = 0
-	intrests = []
+	
 	group()
 	stear(state)
 
@@ -95,7 +78,8 @@ func update_direction(state):
 
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
-	update_direction(state)
+	#update_direction(state)
+	group()
 	state.apply_torque(stear_direction)
 	state.apply_central_force(Vector2(0,-move_speed).rotated(rotation))
 
@@ -104,8 +88,10 @@ func _draw() -> void:
 
 	if Input.is_action_just_pressed("debug ") and debug ==true:
 		debug = false
+		$"debug layer".hide()
 	elif Input.is_action_just_pressed("debug ") and debug ==false:
 		debug = true
+		$"debug layer".show()
 
 	if debug == true:
 		draw_line(to_local(self.global_position), to_local(target_position),Color(0.37, 0.667, 0.109, 1.0),5)

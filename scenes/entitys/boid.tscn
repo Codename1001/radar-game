@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://yighjs8f85uk" path="res://scenes/entitys/boid.gd" id="1_7na72"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7na72"]
-radius = 314.0573
+radius = 285.04385
 
 [node name="boid" type="RigidBody2D" unique_id=1696725926 groups=["neutral"]]
 collision_mask = 3
@@ -45,16 +45,29 @@ collision_mask = 3
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1325307280]
 disable_mode = 2
+collision_layer = 3
+collision_mask = 3
 
-[node name="Polygon2D" type="CollisionShape2D" parent="Area2D" unique_id=1306005163]
-modulate = Color(1, 1, 1, 0.4627451)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=707293380]
 shape = SubResource("CircleShape2D_7na72")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1319886187]
+position = Vector2(-4, 2)
+polygon = PackedVector2Array(2, 0, 439, 69, 1509, 108, 645, -721, 23, -1111, -639, -661, -1306, 128, -342, 81)
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1025778255]
 position = Vector2(0, -196)
 
-[node name="Polygon2D" type="Polygon2D" parent="Marker2D" unique_id=1296135820]
+[node name="debug layer" type="Node2D" parent="." unique_id=943752996]
+visible = false
+
+[node name="Polygon2D" type="Polygon2D" parent="debug layer" unique_id=1296135820]
+position = Vector2(0, -196)
 polygon = PackedVector2Array(-2, -8, 9, -4, 7, 10, -2, 9, -7, 3)
+
+[node name="Polygon2D2" type="Polygon2D" parent="debug layer" unique_id=401145505]
+position = Vector2(-1, -1)
+polygon = PackedVector2Array(1, -39, 11, -30, 15, 0, 9, 36, -7, 36, -14, 1, -9, -29)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
