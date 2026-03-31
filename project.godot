@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="radar"
-run/main_scene="uid://c18hreo4mep7j"
+run/main_scene="uid://duo5f2y85h0gb"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://o5kyclp6f1a7"
 
@@ -27,6 +27,11 @@ buses/default_bus_layout="uid://berkcnm6mrpah"
 
 hud="*uid://bygews1qh6y4o"
 globalVars="*uid://cah0xvfi2f53u"
+
+[display]
+
+window/stretch/mode="viewport"
+window/main_scene="uid://dxmf8bb8gqvj7"
 
 [file_customization]
 

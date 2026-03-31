@@ -52,8 +52,9 @@ collision_mask = 3
 shape = SubResource("CircleShape2D_7na72")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1319886187]
+visible = false
 position = Vector2(-4, 2)
-polygon = PackedVector2Array(2, 0, 439, 69, 1509, 108, 645, -721, 23, -1111, -639, -661, -1306, 128, -342, 81)
+polygon = PackedVector2Array(2, 0, 439, 69, 1157.3875, 574.3815, 1041.2656, -172.5647, 592.4702, -1023.079, 23, -1111, -662.9015, -1045.048, -976.7444, -232.19482, -910.8374, 571.24304, -342, 81)
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1025778255]
 position = Vector2(0, -196)

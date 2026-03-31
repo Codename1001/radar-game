@@ -5,12 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://fox4ts6k5man" path="res://scenes/components/guns.tscn" id="4_dqkch"]
 [ext_resource type="AudioStream" uid="uid://bn4gn7go3apmu" path="res://crash sound.ogg" id="5_hucg6"]
 [ext_resource type="AudioStream" uid="uid://dj88rau8q6lvb" path="res://ship background noise.ogg" id="6_hucg6"]
+[ext_resource type="PackedScene" uid="uid://clphmp64mebhk" path="res://scenes/components/camera_2d.tscn" id="6_l1ko6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g2els"]
 friction = 0.65
 rough = true
 
 [node name="player" type="RigidBody2D" unique_id=1735800185]
+top_level = true
 disable_mode = 2
 collision_layer = 2
 input_pickable = true
@@ -25,6 +27,9 @@ contact_monitor = true
 max_contacts_reported = 1
 linear_damp = 0.235
 script = ExtResource("1_8vunr")
+
+[node name="Camera2D" parent="." unique_id=1048905295 instance=ExtResource("6_l1ko6")]
+position = Vector2(0.00590897, -107.329)
 
 [node name="visuals" type="Node2D" parent="." unique_id=478660232]
 
@@ -79,6 +84,16 @@ default_color = Color(0.36862746, 0.89411765, 0.105882354, 1)
 joint_mode = 2
 round_precision = 5
 
+[node name="guns" parent="visuals" unique_id=124926418 instance=ExtResource("4_dqkch")]
+position = Vector2(24, -64)
+max_angle = 90
+min_angel = -90
+
+[node name="guns2" parent="visuals" unique_id=2129618395 instance=ExtResource("4_dqkch")]
+position = Vector2(-24, -64)
+max_angle = 90
+min_angel = -90
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=892902401]
 position = Vector2(0.00590897, -75.3294)
 polygon = PackedVector2Array(16.0747, 111.213, 8.25726, 87.8726, 16, 56, 32, 64, 32, 16, 16, 0, 16, -56, 8, -72, -0.00590897, -76.6706, -8, -72, -16, -56, -16, 0, -32, 16, -32, 64, -16, 56, -8.04775, 88.4309, -15.6879, 112.76, -14.0784, 118.919, -2.86339, 114.202, -0.00590897, 115.3294, -5.70251, 123.163, -0.00692749, 120.929, 4.79523, 122.381, -0.00590897, 115.3294, 2.44999, 114.005, 15.0696, 118.584)
@@ -89,16 +104,6 @@ position = Vector2(0.00590897, -107.329)
 [node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=564971042]
 position = Vector2(0.00590897, -56)
 current = true
-
-[node name="guns" parent="." unique_id=124926418 instance=ExtResource("4_dqkch")]
-position = Vector2(24, -64)
-max_angle = 90
-min_angel = -90
-
-[node name="guns2" parent="." unique_id=2129618395 instance=ExtResource("4_dqkch")]
-position = Vector2(-24, -64)
-max_angle = 90
-min_angel = -90
 
 [node name="Area2D" type="Area2D" parent="." unique_id=965367707]
 collision_layer = 2

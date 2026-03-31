@@ -2,51 +2,51 @@
 
 [ext_resource type="Script" uid="uid://lrei367i1ond" path="res://scenes/components/hud.gd" id="1_bew8r"]
 [ext_resource type="Theme" uid="uid://wmf7vy6nt84e" path="res://meterials/menu.res" id="2_bew8r"]
+[ext_resource type="Theme" uid="uid://fr6opyk0tj03" path="res://meterials/menu.tres" id="3_sgp4j"]
 
 [node name="hud" type="CanvasLayer" unique_id=860957025]
 script = ExtResource("1_bew8r")
+
+[node name="border2" type="Line2D" parent="." unique_id=465735031]
+position = Vector2(316, 8)
+points = PackedVector2Array(260, 0, 452.00003, 64, 516, 256, 452.00003, 448, 260, 512, 68.00003, 448, 4.000032, 256, 68.00003, 64)
+closed = true
+width = 8.0
+default_color = Color(0.36862746, 0.89411765, 0.105882354, 0.5019608)
+joint_mode = 2
 
 [node name="Control" type="Control" parent="." unique_id=639762024]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = 2.0
+offset_right = -4.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1090204530]
-custom_minimum_size = Vector2(-0.315, 0)
+[node name="bulet type" type="OptionButton" parent="Control" unique_id=1322175656]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer" unique_id=1262336934]
-custom_minimum_size = Vector2(600, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
+anchors_preset = -1
+anchor_left = -0.4019097
+anchor_top = -0.76080245
+anchor_right = -0.4236111
+anchor_bottom = -0.76080245
+offset_left = 673.0
+offset_top = 563.0
+offset_right = 861.0
+offset_bottom = 594.0
 theme = ExtResource("2_bew8r")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/PanelContainer" unique_id=659460226]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/PanelContainer/HBoxContainer" unique_id=1147636585]
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-scroll_active = false
-autowrap_mode = 0
-
-[node name="Control" type="VBoxContainer" parent="Control/MarginContainer/PanelContainer/HBoxContainer" unique_id=500625025]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="bulet type" type="OptionButton" parent="Control/MarginContainer/PanelContainer/HBoxContainer/Control" unique_id=1322175656]
-layout_mode = 2
+theme_override_colors/font_color = Color(0.36862746, 0.89411765, 0.105882354, 1)
+theme_override_colors/font_focus_color = Color(0.36862746, 0.89411765, 0.105882354, 1)
+theme_override_colors/font_pressed_color = Color(0.36862746, 0.89411765, 0.105882354, 1)
+theme_override_colors/font_hover_color = Color(0.36862746, 0.89411765, 0.105882354, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.36862746, 0.89411765, 0.105882354, 1)
+theme_override_colors/font_outline_color = Color(0.36862746, 0.89411765, 0.105882354, 1)
 selected = 0
 allow_reselect = true
 item_count = 2
@@ -54,37 +54,91 @@ popup/item_0/text = "tracking_beacon"
 popup/item_0/id = 0
 popup/item_1/text = "standerd_torpedo"
 popup/item_1/id = 1
-metadata/_edit_use_anchors_ = true
 
-[node name="menu" type="VBoxContainer" parent="Control/MarginContainer" unique_id=1501310357]
-visible = false
-layout_mode = 2
-theme = ExtResource("2_bew8r")
-theme_override_constants/separation = -31
-alignment = 1
+[node name="data_desplay" type="RichTextLabel" parent="Control" unique_id=1147636585]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 406.0
+offset_bottom = 138.93225
+theme = ExtResource("3_sgp4j")
+text = "ewrwerwerwerwerwerwerwer"
+scroll_active = false
 
-[node name="Label" type="Label" parent="Control/MarginContainer/menu" unique_id=264478875]
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("2_bew8r")
-theme_override_font_sizes/font_size = 52
-text = "menu"
+[node name="scan instructions" type="Label" parent="Control" unique_id=521745115]
+layout_mode = 0
+offset_left = 806.0
+offset_top = 3.0
+offset_right = 1017.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0.36862746, 0.89411765, 0.105882354, 1)
+text = "PRESS TAB / SHIFT TO SCAN"
 
-[node name="TabContainer" type="TabContainer" parent="Control/MarginContainer/menu" unique_id=1643043211]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("2_bew8r")
-tab_alignment = 1
-current_tab = 0
+[node name="green" type="Polygon2D" parent="Control/scan instructions" unique_id=2115074747]
+position = Vector2(-848, -48)
+color = Color(0.36862746, 0.89411765, 0.105882354, 1)
+polygon = PackedVector2Array(880, 88, 904, 88, 904, 112, 880, 112)
 
-[node name="ship loadout" type="TabBar" parent="Control/MarginContainer/menu/TabContainer" unique_id=1103305024]
-layout_mode = 2
-metadata/_tab_index = 0
+[node name="Label" type="Label" parent="Control/scan instructions/green" unique_id=1443915120]
+offset_left = 920.0
+offset_top = 88.0
+offset_right = 1014.0
+offset_bottom = 111.0
+theme_override_colors/font_color = Color(0.36862746, 0.89411765, 0.105882354, 1)
+text = "wall / terrain"
 
-[node name="sound" type="TabBar" parent="Control/MarginContainer/menu/TabContainer" unique_id=318216865]
-visible = false
-layout_mode = 2
-focus_neighbor_left = NodePath(".")
-focus_neighbor_right = NodePath("../ship loadout")
-focus_mode = 0
-metadata/_tab_index = 1
+[node name="blue" type="Polygon2D" parent="Control/scan instructions" unique_id=99001172]
+position = Vector2(-848, 0)
+color = Color(0, 0.459173, 0.734504, 1)
+polygon = PackedVector2Array(880, 88, 904, 88, 904, 112, 880, 112)
+
+[node name="Label2" type="Label" parent="Control/scan instructions/blue" unique_id=858727107]
+offset_left = 920.0
+offset_top = 88.0
+offset_right = 1030.0
+offset_bottom = 111.0
+theme_override_colors/font_color = Color(0, 0.459173, 0.734504, 1)
+text = "friendly / item"
+
+[node name="purple" type="Polygon2D" parent="Control/scan instructions" unique_id=897285033]
+position = Vector2(-848, 96)
+color = Color(0.74, 0.074, 0, 1)
+polygon = PackedVector2Array(880, 88, 904, 88, 904, 112, 880, 112)
+
+[node name="Label3" type="Label" parent="Control/scan instructions/purple" unique_id=104091805]
+offset_left = 920.0
+offset_top = 40.0
+offset_right = 1030.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(0.7133199, 0.0032209097, 0.9777351, 1)
+text = "nutral / object"
+
+[node name="red" type="Polygon2D" parent="Control/scan instructions" unique_id=1366205975]
+position = Vector2(-848, 48)
+color = Color(0.7133199, 0.0032209097, 0.9777351, 1)
+polygon = PackedVector2Array(880, 88, 904, 88, 904, 112, 880, 112)
+
+[node name="Label4" type="Label" parent="Control/scan instructions/red" unique_id=268308160]
+modulate = Color(0.74, 0.074, 0, 1)
+offset_left = 920.0
+offset_top = 136.0
+offset_right = 1030.0
+offset_bottom = 159.0
+text = "enemy 💀"
+
+[node name="controls" type="Label" parent="Control" unique_id=943976208]
+layout_mode = 0
+offset_left = 337.0
+offset_top = 493.0
+offset_right = 923.0
+offset_bottom = 698.0
+theme_override_colors/font_color = Color(0.36862746, 0.89411765, 0.105882354, 1)
+text = "              move foward                                     zoom in
+                      (W)                                                     ↑ 
+turn  left (A)      (D) turn right    move left  ←     → move right                                
+                       (s)                                                      ↓                                            
+               move back                                       zoom out                    
+                                                     
+
+     "

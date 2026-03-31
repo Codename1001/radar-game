@@ -25,13 +25,13 @@ func group():
 
 	if !near_boids == []:
 		for area in near_boids:
-			boids += area.global_position 
+			boids += area.global_position
 			avrige_posiiton = (boids / near_boids.size())
 			intrests.append(avrige_posiiton)
 			#target_position = (avrige_posiiton / near_boids.size())
 		pass
 	else:
-		
+
 		intrests.append($Marker2D.global_position)
 		#intrests.append((avrige_posiiton / near_boids.size()))
 		#target_position = $Marker2D.global_position
@@ -40,15 +40,15 @@ func group():
 
 	#finds the avrage point of itrest and sets targaet position to it
 	for i in intrests:
-		
+
 		if intrests.size() <1:
 			target_position = (i/ intrests.size())
 		else :
 			target_position = i
-	
+
 	stear_direction =  100*(rad_to_deg(get_angle_to(target_position))+90)
-	
-	
+
+
 	queue_redraw()
 	pass
 
@@ -67,9 +67,9 @@ func stear(state):
 
 func update_direction(state):
 
-	
+
 	#stear_direction = 0
-	
+
 	group()
 	stear(state)
 

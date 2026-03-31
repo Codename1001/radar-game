@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-@onready var data_display = $Control/MarginContainer/PanelContainer/HBoxContainer/RichTextLabel
-@onready var bulet_type_button= $"Control/MarginContainer/PanelContainer/HBoxContainer/Control/bulet type"
+@onready var data_display = $Control/data_desplay
+@onready var bulet_type_button=$"Control/bulet type"
 var menu_show = false
 
 @onready var selected_bulet_type
@@ -33,6 +33,6 @@ func _process(delta: float) -> void:
 		bulet_type_button.grab_focus()
 
 func update_hud_data():
-	data_display.text = "speed : " + str(globalVars.data.speed) + "m/s" +  "												ammo_type: " +"\nhealth: " +str(globalVars.data.health)+ "										ammo: " + str(globalVars.data.ammo_type[selected_bulet_type]) + " Rnd's"+ "\nposition: \n(" +str(roundi(globalVars.data.position.x)) + ", " + str(roundi(globalVars.data.position.y))+ ")" + "\n\n\n"
+	data_display.text = "speed : " + str(globalVars.data.speed) + "m/s"  +"\nhealth: " +str(globalVars.data.health)+"								ammo: " + str(globalVars.data.ammo_type[selected_bulet_type]) + " Rnd's" + "\nposition: \n(" +str(roundi(globalVars.data.position.x)) + ", " + str(roundi(globalVars.data.position.y))+ ")" + "	ammo_type: "+ "\n\n\n"
 
 	pass

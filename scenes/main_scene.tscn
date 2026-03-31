@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://duo5f2y85h0gb"]
+
+[ext_resource type="PackedScene" uid="uid://c18hreo4mep7j" path="res://scenes/world.tscn" id="1_w2twt"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pw63i"]
+viewport_path = NodePath("SubViewport")
+
+[node name="main scene" type="Node2D" unique_id=901551822]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1528973393]
+custom_minimum_size = Vector2(22.625, 21.64)
+offset_right = 1151.8021
+offset_bottom = 647.8021
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=756691953]
+audio_listener_enable_2d = true
+
+[node name="world" parent="SubViewport" unique_id=708792614 instance=ExtResource("1_w2twt")]
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=75225397]
+position = Vector2(316, 8)
+texture = SubResource("ViewportTexture_pw63i")
+polygon = PackedVector2Array(260, 0, 452.00003, 64, 516, 256, 452.00003, 448, 260, 512, 68.00003, 448, 4.000032, 256, 68.00003, 64)
+uv = PackedVector2Array(260.00003, 1.9073486e-06, 452.00003, 64, 516, 256, 452.00003, 448, 256.00003, 512, 68.00003, 448, 4.000032, 256, 68.00003, 64)
