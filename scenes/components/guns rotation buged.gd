@@ -26,6 +26,7 @@ func place_tracker():
 			var object_type
 			new_marker.global_position = ray.get_collider().to_local(marker.global_position)
 			object_type = ray.get_collider()
+			#add_child(new_marker)
 			ray.get_collider().add_child(new_marker)
 			new_marker.move_marker(distance,ray.get_collider().to_local(ray.get_collision_point()), object_type, global_rotation)
 
@@ -46,7 +47,7 @@ func _draw() -> void:
 			draw_dashed_line($Marker2D.position,ray.target_position/5,Color(0.369, 0.894, 0.106, 0.258), 4,8,false,true)
 			#									to_local(ray.get_collision_point())
 		else:
-			draw_dashed_line($Marker2D.position,ray.target_position/5,Color(0.369, 0.894, 0.106, 0.258)         , 4,8,false,true)
+			draw_dashed_line($Marker2D.position,ray.target_position/5,Color(0.369, 0.894, 0.106, 0.258), 4,8,false,true)
 func _process(delta: float) -> void:
 	if globalVars.control == true:
 		aim_guns()

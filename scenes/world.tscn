@@ -1,14 +1,10 @@
 [gd_scene format=3 uid="uid://c18hreo4mep7j"]
 
 [ext_resource type="PackedScene" uid="uid://gpy6a2hye0g7" path="res://scenes/entitys/player.tscn" id="1_rwgxs"]
-[ext_resource type="PackedScene" uid="uid://da1ugq2c3na5t" path="res://scenes/entitys/boid.tscn" id="3_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://bgxci8rwclou8" path="res://scenes/mouse_pointer.tscn" id="4_k0juu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4wyf3"]
 size = Vector2(130.38371, 86.3625)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4wyf3"]
-radius = 87.65528
 
 [node name="world" type="Node2D" unique_id=708792614]
 
@@ -43,28 +39,19 @@ shape = SubResource("RectangleShape2D_4wyf3")
 position = Vector2(-375.52997, 1507.5463)
 collision_mask = 3
 gravity_scale = 0.0
+can_sleep = false
+angular_velocity = 1.2369149
+constant_torque = 2000.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="world objects/dude" unique_id=961089662]
-shape = SubResource("CircleShape2D_4wyf3")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="world objects/dude" unique_id=1846901216]
+polygon = PackedVector2Array(-130.47003, -24.546265, 88.52997, -72.546265, 106.52997, 24.453735, 78.52997, 99.453735, 7.5299683, 90.453735)
+
+[node name="Polygon2D" type="Polygon2D" parent="world objects/dude" unique_id=219325060]
+polygon = PackedVector2Array(-130.47003, -24.546265, 88.52997, -72.546265, 106.52997, 24.453735, 78.52997, 99.453735, 7.5299683, 90.453735)
 
 [node name="player" parent="." unique_id=866916123 instance=ExtResource("1_rwgxs")]
-position = Vector2(56.46411, 0)
-
-[node name="boid10" parent="." unique_id=1649410317 instance=ExtResource("3_4wyf3")]
-position = Vector2(-11061, 1157.9993)
-rotation = -1.0349803
-id = 3
+position = Vector2(-97.690674, 1019.4939)
+rotation = 3.689626
 
 [node name="mouse pointer" parent="." unique_id=553573650 instance=ExtResource("4_k0juu")]
-position = Vector2(-12756.722, 2421.0835)
-
-[node name="boid" parent="." unique_id=1696725926 instance=ExtResource("3_4wyf3")]
-position = Vector2(-11269.88, 1922.6168)
-id = 2
-
-[node name="boid2" parent="." unique_id=743657351 instance=ExtResource("3_4wyf3")]
-position = Vector2(-7875, 2326)
-id = 2
-
-[node name="boid3" parent="." unique_id=2077345209 instance=ExtResource("3_4wyf3")]
-position = Vector2(-8904, 3349)
+position = Vector2(-197.90002, 0)
